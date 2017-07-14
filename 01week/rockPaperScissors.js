@@ -7,14 +7,28 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function rockPaperScissors(hand1, hand2) {
+  hand1 = hand1.toLowerCase().trim();
+  hand2 = hand2.toLowerCase().trim();
+  switch (hand1 + hand2) {
+    case 'rockscissors':
+    case 'paperrock':
+    case 'scissorspaper':
+      return 'Hand one wins!';
+      break;
 
-  // Write code here
+    case 'rockpaper':
+    case 'paperscissors':
+    case 'scissorsrock':
+      return 'Hand two wins!';
+      break;
 
+    default:
+      return "It's a tie!";
+  }
 }
 
-function getPrompt() {
+function getPrompt () {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
       console.log( rockPaperScissors(answer1, answer2) );
