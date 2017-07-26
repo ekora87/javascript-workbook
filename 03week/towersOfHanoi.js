@@ -13,40 +13,62 @@ let stacks = {
   c: []
 };
 
-function printStacks() {
-  console.log("a: " + stacks.a);
-  console.log("b: " + stacks.b);
-  console.log("c: " + stacks.c);
+function printStacks () {
+  console.log('a: ' + stacks.a);
+  console.log('b: ' + stacks.b);
+  console.log('c: ' + stacks.c);
 }
 
-function movePiece() {
+function movePiece (startStack, endStack) {
+  // Your code here
+  var pickElement = stacks[startStack].pop();
+  stacks[endStack].push(pickElement);
+}
+
+function isLegal (startStack, endStack) {
+  // Your code here
+  var startArray = stacks[startStack];
+  var endArray = stacks[endStack];
+
+  if ((startArray[startArray.length - 1] < endArray[endArray.length - 1]) || (endArray.length === 0)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function checkForWin () {
   // Your code here
 
+  if (stacks['b'].length === 4 || stacks['c'].length === 4) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-function isLegal() {
+function towersOfHanoi (startStack, endStack) {
   // Your code here
 
+  if (isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack);
+  } else {
+    console.log('TRY AGAIN!!!!!');
+  }
 }
 
-function checkForWin() {
-  // Your code here
-
-}
-
-function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
-}
-
-function getPrompt() {
+function getPrompt () {
   printStacks();
-  rl.question('start stack: ', (startStack) => {
-    rl.question('end stack: ', (endStack) => {
-      towersOfHanoi(startStack, endStack);
-      getPrompt();
+  if (checkForWin()) {
+    console.log('YOU WON!!! THE GAME IS OVER');
+  } else {
+    rl.question('start stack: ', (startStack) => {
+      rl.question('end stack: ', (endStack) => {
+        towersOfHanoi(startStack, endStack);
+        getPrompt();
+      });
     });
-  });
+  }
 }
 
 // Tests
