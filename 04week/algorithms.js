@@ -29,11 +29,6 @@ function bubbleSort(arr) {
   return arr;
 }
 
-// function mergeSort(arr) {
-//   // Your code here
-//
-// }
-
 function mergeSort(arr)
 {
     if (arr.length < 2)
@@ -68,7 +63,22 @@ function merge(left, right)
 }
 
 function binarySearch(arr, item) {
-  // Your code here
+    var min = 0,
+        max = arr.length - 1,
+        guess,
+        element;
+    while (min <= max) {
+         guess = Math.floor((min + max) / 2);
+        element = arr[guess];
+        if (element < item) {
+            min = guess + 1;
+        } else if (element > item) {
+            max = guess - 1;
+        } else {
+            return guess;
+        }
+    }
+    return false;
 }
 
 // Tests
