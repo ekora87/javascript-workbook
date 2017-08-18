@@ -5,64 +5,39 @@ document.addEventListener('DOMContentLoaded', () => {
   let moved = {};
   let movedValue;
   let lastValue;
+  let num;
 
+  function checkForWin() {
+     if (document.querySelector('.stack-3').children.length === 4){
+       document.querySelector('#announce-game-won').innerHTML = "You Won";
+     }
+  }
   document.querySelectorAll('[data-block]').forEach ((div) => {
     div.addEventListener('click', (e) => {
-
       movedValue = e.target.attributes[0].value;
-      // console.log(movedValue);
-      // debugger;
+      e.stopPropagation;
       moved = { target: e.target, parent: e.target.parentNode};
-      //e.stopPropagation;
-      //movedValue = e.target.parentNode.lastChild;
-      // console.log(moved);
-      // console.log(e.target.parentNode.children[e.target.parentNode.children.length - 1]);
-      // debugger;
-      if (e.target === e.target.parentNode.children[e.target.parentNode.children.length - 1]) {
-        e.target.parentNode.removeChild(e.target);
+      if (moved.target === moved.parent.children[moved.parent.children.length - 1]) {
+        moved.parent.removeChild(moved.target);
+      } else {
+        alert ("You can't click here. Please click on the last block");
       }
-      //console.log(movedValue);
-
     });
   });
 
-  document.querySelectorAll('[data-stack]').forEach ((stack) => {
-      stack.addEventListener ('click' ,(e) => {
-        //lastValue = 0;
-        //console.log();
-        let num = e.target.children.length;
-
-        //e.target.removeChild(e.target.lastChild);
-        //debugger;
-        if (!e.target.children.length) {
-        //  debugger;
-        // console.log("Move: " + movedValue);
-        // console.log("last: " + lastValue);
+  document.querySelectorAll('[data-stack]').forEach ((div) => {
+      div.addEventListener ('click' ,(e) => {
+         num = e.target.children.length;
+         if (num > 0) {
+           lastValue = e.target.children[num-1].attributes[0].value;
+        }
+        if (!num || (parseInt(movedValue) < parseInt(lastValue))) {
           e.target.appendChild(moved.target);
         } else {
-          lastValue = e.target.children[num-1].attributes[0].value;
-          if (movedValue <= lastValue) {
-              e.target.appendChild(moved.target);
-          }
+           alert ('This block cannot goes here');
+           moved.parent.appendChild(moved.target);
         }
-        console.log("Move: " + movedValue);
-        console.log("last: " + lastValue);
-
-        // if (!e.target.children.length){
-        //   e.target.appendChild(moved.target);
-        //
-        // } else {
-        //
-        //
-        // }
-        // lastValue = { size: e.target.attributes[0].value};
-        // console.log(lastValue);
+        checkForWin();
       });
-
-
- });
-
- document.querySelector('[data-stack]').addEventListener('click', (e) => {
-   e.target.appendChild(moved.target);
  });
 });

@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-var colors = require('colors');
+//var colors = require('colors');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -83,7 +83,9 @@ function generateSolution() {
     const randomIndex = getRandomInt(0, letters.length);
     solution += letters[randomIndex];
   }
+  console.log("Solution: " + solution);
   return solution;
+
 }
 
 function getRandomInt(min, max) {
@@ -92,13 +94,14 @@ function getRandomInt(min, max) {
 
 function generateHint(guess) {
   // your code here
-  var solutionArray = generateSolution().split('');
+  var solutionArray = solution.split('');
+  console.log("Solution array: " + solutionArray);
   var guessArray = guess.split('');
   var correctLetterLocation = 0;
   for (var i = 0; i <solutionArray.length; i++){
     if (solutionArray[i] === guessArray[i]){
         correctLetterLocation ++;
-        //solutionArray[i] = null;
+        solutionArray[i] = null;
     }
   }
   var correctLetter = 0;
@@ -107,10 +110,10 @@ function generateHint(guess) {
     var targetIndex = solutionArray.indexOf(guessArray[y]);
     if (targetIndex > -1){
       correctLetter++;
-      //solutionArray[targetIndex] = null;
+      solutionArray[targetIndex] = null;
     }
   }
-  return colors.red(correctLetterLocation) + "-" + colors.white(correctLetter);
+  return correctLetterLocation + "-" + correctLetter;
 }
 
 
@@ -138,6 +141,7 @@ function mastermind(guess) {
 function getPrompt() {
   rl.question('guess: ', (guess) => {
     mastermind(guess);
+    console.log(solution);
     printBoard();
     getPrompt();
   });
