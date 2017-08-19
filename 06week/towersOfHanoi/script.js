@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let num;
 
   function checkForWin() {
-     if (document.querySelector('.stack-3').children.length === 4){
+     if (document.querySelector('[data-stack = "3"]').children.length === 4){
        document.querySelector('#announce-game-won').innerHTML = "You Won";
      }
   }
