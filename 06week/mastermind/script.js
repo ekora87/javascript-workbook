@@ -6,8 +6,23 @@ document.addEventListener('DOMContentLoaded', () => {
   let moveValue;
   let countRow = 0;
   let countColumn = 0;
+  let solution = '';
+  let letters = ['red', 'green', 'blue', 'brown', 'purple', 'pink', 'yellow', 'orange'];
+  LEt guessArray = []
   let selection = document.querySelector('.selection-container');
 
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+  
+  function generateSolution {
+    for (let i = 0; i < 4; i++) {
+      const randomIndex = getRandomInt(0, letters.length);
+      solution += letters[randomIndex];
+    }
+    console.log("Solution: " + solution);
+    return solution;
+  }
   document.querySelectorAll('.colors').forEach ((div) => {
     div.addEventListener('click', (e) => {
       moveValue = e.target.parentNode.attributes[0].value;
@@ -35,21 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
                        countColumn = 0;
                      }
 
-                    // } else {
-                    //   alert ("You can't click here")
-                    // }
-
-
-                      console.log(countRow);
-
-
-                    console.log(countColumn);
                     moved.parent.appendChild(moved.target);
                     //debugger;
                     //counter();
               });
-
-
     });
 
 
