@@ -1,0 +1,135 @@
+.container {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 720px;
+  width: 450px;
+  align-content: center;
+  margin-bottom: 20px;
+
+}
+
+div[data-stack] {
+  height: 70px;
+  width: 280px;
+  border: 1px solid black;
+}
+div[data-cell] {
+  width: 70px;
+  height: 70px;
+  background-color: #f2f2f2;
+  float: left;
+  border: 1px solid #808080;
+  font-size: 100px;
+  text-align: center;
+}
+
+.result-container {
+  height: 30px;
+  width: 120px;
+  border: 1px solid black;
+  border-radius: 10px;
+  float: left;
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.result {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-top: 3.5px;
+}
+.result-white {
+  background-color: white;
+}
+
+.result-black {
+  background-color: black;
+}
+
+.row {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.selection-container {
+  display: flex;
+}
+.selection-box{
+  width: 70px;
+  height: 70px;
+  background-color: #f2f2f2;
+  border: 1px solid #808080;
+}
+
+.circle {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin: 5px;
+}
+.red {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin: 5px;
+  background-color: red;
+}
+.green {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin: 5px;
+  background-color: green;
+}
+.blue {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin: 5px;
+  background-color: blue;
+}
+.brown {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin: 5px;
+  background-color: brown;
+}
+.purple {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin: 5px;
+  background-color: purple;
+}
+.pink {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin: 5px;
+  background-color: pink;
+}
+.yellow {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin: 5px;
+  background-color: yellow;
+}
+.orange {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin: 5px;
+  background-color: orange;
+}
+
+
+
+#announce-winner {
+  clear: both;
+  font-size: 50px;
+}
