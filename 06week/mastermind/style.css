@@ -1,33 +1,35 @@
+body {
+  background-image: url(wood-background.jpg);
+  text-align: center;
+}
+.wrapper {
+text-align: center;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+}
 .container {
-  border: 1px solid black;
+  border: 4px solid white;
   border-radius: 5px;
-  height: 720px;
-  width: 450px;
+  height: 760px;
+  width: 470px;
   align-content: center;
-  margin-bottom: 20px;
-  background-color: teal;
-
 }
 
-div[data-stack] {
-  height: 70px;
-  width: 280px;
-  border: 1px solid black;
-}
 div[data-cell] {
   width: 70px;
   height: 70px;
-  background-color: #f2f2f2;
   float: left;
-  border: 1px solid #808080;
+  border: 3px solid white;
   font-size: 100px;
-  text-align: center;
+
 }
 
 .hint {
   height: 30px;
   width: 120px;
-  border: 1px solid black;
+  border: 3px solid white;
   border-radius: 10px;
   float: left;
   margin: 20px;
@@ -38,7 +40,7 @@ div[data-cell] {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid white;
   margin-top: 3.5px;
 }
 .result-white {
@@ -50,19 +52,18 @@ div[data-cell] {
 }
 
 .row {
-  content: '';
-  display: block;
   clear: both;
 }
 
 .selection-container {
   display: flex;
+  flex-direction: column;
 }
 .selection-box{
   width: 70px;
   height: 70px;
   background-color: #f2f2f2;
-  border: 1px solid #808080;
+  border: 3px solid #808080;
 }
 
 .circle {
@@ -96,9 +97,26 @@ div[data-cell] {
   background-color: orange;
 }
 
-
-
 #announce-winner {
+  margin-top: 30px;
+  margin-left: -5%;
   clear: both;
   font-size: 50px;
+  color: white;
+}
+#clear {
+  background-image: url(restart.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 200px;
+  height: 200px;
+}
+#easy {
+  background-image: url(easy.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 200px;
+  height: 200px;
 }
