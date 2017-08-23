@@ -98,21 +98,19 @@ function generateHint(guess) {
   console.log("Solution array: " + solutionArray);
   var guessArray = guess.split('');
   var correctLetterLocation = 0;
+  var correctLetter = 0;
   for (var i = 0; i <solutionArray.length; i++){
     if (solutionArray[i] === guessArray[i]){
         correctLetterLocation ++;
         solutionArray[i] = null;
     }
-  }
-  var correctLetter = 0;
-
-    for (var y = 0; y < solutionArray.length; y++){
-    var targetIndex = solutionArray.indexOf(guessArray[y]);
+    var targetIndex = solutionArray.indexOf(guessArray[i]);
     if (targetIndex > -1){
       correctLetter++;
       solutionArray[targetIndex] = null;
     }
   }
+  
   return correctLetterLocation + "-" + correctLetter;
 }
 
